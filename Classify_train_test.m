@@ -34,22 +34,5 @@ cm = confusionchart(confmat);
 Accuracy= 100*trace(confmat)/sum(confmat(:));
 Accuracy
 
-%%
-    SVMModel = fitcsvm(Data,Group,'KernelFunction','linear', ...
-         'OutlierFraction',0.05);%0.09 % remove: 'Standardize',true,
-    
-    SVMModelPosteriorProb = fitSVMPosterior(SVMModel);
-    
-    [Y_svm_post,post_pr] = predict(SVMModelPosteriorProb,Data2);
-    
-    [X,Y,~,AUCsvm] = perfcurve(Group2,post_pr(:,2),1);
-    plot(X,Y,'r','LineWidth',2)
-confmat=confusionmat(Group2,Y_svm_post);
 
-
-%%
-PolyModel = fitcsvm(Data,Group,'KernelFunction','polynomial','OutlierFraction',0.095);
-PolyModelPosteriorProb = fitSVMPosterior(PolyModel);
-[~,score_poly] = predict(PolyModelPosteriorProb,Data2);
-[X3,Y3,~,AUC_Poly] = perfcurve(Group2,score_poly(:,2),1);
 
