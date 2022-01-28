@@ -1,33 +1,5 @@
 
 
-filename="D:\Sara\CCIPD\AML\AML journal paper\data_train.xlsx";
-filename2="D:\Sara\CCIPD\AML\AML journal paper\data_test.xlsx";
-
-
-[num,txt,raw] = xlsread(filename);
-%combine data as you want:
-%AllData={txt;num};%as you want
-AllData=num;%as you want
-%save in mat file
-matfileName='Train';
-save(matfileName,'AllData');%In your matfile name
-
-
-
-load('D:\Sara\CCIPD\Hadi\MIToolbox-2.1.2\Train.mat')
-
-
-[num2,txt2,raw2] = xlsread(filename2);
-%combine data as you want:
-%AllData={txt;num};%as you want
-AllData2=num2;%as you want
-%save in mat file
-matfileName='Test';
-save(matfileName,'AllData2');%In your matfile name
-
-
-
-load('D:\Sara\CCIPD\Hadi\MIToolbox-2.1.2\Test.mat')
 
 data = AllData(:,1:end-1);
 Group = AllData(:,end);
