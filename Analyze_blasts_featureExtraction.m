@@ -13,7 +13,7 @@ img = imread([imgDir filesep masks(1).name(1:end-length('_mask.png')) '.png']);
 
 Num_level=8;
 
-feats= haralick_img_nuclei_wise(img,mask,Num_level)%13 Texture Features
+feats= haralick_img_blast_wise(img,mask,Num_level)%13 Texture Features
 si=size(feats.img3,1);
 
 s=sum(feats.img3,1);
@@ -91,7 +91,7 @@ for b = 2:length(masks)
     
     numcom=bwconncomp(mask)
     if numcom.NumObjects~=0
-        feats= haralick_img_nuclei_wise(img,mask,Num_level)%13 Texture Features
+        feats= haralick_img_blast_wise(img,mask,Num_level)%13 Texture Features
 
         Name=extractBefore( masks(b).name,"_mask");
 
