@@ -15,7 +15,7 @@ library(c060)
 
 setwd(".../AML/AML journal paper/survival")
 
-DATA <- read.table(".../AML/AML journal paper/survival/train/data_train_R1.txt",header = TRUE)
+DATA <- read.table(".../AML/AML journal paper/survival/train/data_train_riskscore_R.txt",header = TRUE)
 
 
 x <- model.matrix(os + censor ~., DATA)[,-1]
