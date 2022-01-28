@@ -2,8 +2,8 @@
 masks = dir(['F:/AML_Data/AML5_outputs_validation/*.png']);
 for b = 1:length(masks)
     mask = imread([masks(b).folder filesep masks(b).name]);
-    BW1 = bwareaopen(mask,1050);% removes all connected components (objects) that have fewer than 1002 pixels from the binary image mask
-    BW2 = bwareaopen(mask,50000);% only objects bigger than 3950.4 remains in the binary image mask
+    BW1 = bwareaopen(mask,1050);% removes all connected components (objects) that have fewer than 1050 pixels from the binary image mask
+    BW2 = bwareaopen(mask,50000);% only objects bigger than 50000 remains in the binary image mask
     BW=BW1-BW2;
     Name=extractBefore( masks(b).name,"_class");
     imwrite(BW,[Name '_mask.png']);
@@ -14,8 +14,8 @@ end
 masks = dir(['F:/AML_Data/AML5_outputs_training/*.png']);
 for b = 1:length(masks)
     mask = imread([masks(b).folder filesep masks(b).name]);
-    BW1 = bwareaopen(mask,1050);% removes all connected components (objects) that have fewer than 1002 pixels from the binary image mask
-    BW2 = bwareaopen(mask,50000);% only objects bigger than 3950.4 remains in the binary image mask
+    BW1 = bwareaopen(mask,1050);% removes all connected components (objects) that have fewer than 1050 pixels from the binary image mask
+    BW2 = bwareaopen(mask,50000);% only objects bigger than 50000 remains in the binary image mask
     BW=BW1-BW2;
     Name=extractBefore( masks(b).name,"_class");
     imwrite(BW,[Name '_mask.png']);
